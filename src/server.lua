@@ -19,7 +19,7 @@ function collectingThread(source, data)
 				if data.phase == 1 then
 					Wait(Config.CollectingSpeed)
 					local item = xPlayer.getInventoryItem(data.item)
-					if item.count >= 250 then
+					if xPlayer.canCarryItem(data.item, 1) then
 						xPlayer.showNotification('You have maximum amount of ' ..item.label)
 					else
 						xPlayer.addInventoryItem(data.item, 1)
@@ -28,7 +28,7 @@ function collectingThread(source, data)
 					Wait(Config.CollectingSpeed)
 					local item = xPlayer.getInventoryItem(data.item)
 					local newitem = xPlayer.getInventoryItem(data.newitem)
-					if newitem.count <= 50 then
+					if xPlayer.canCarryItem(data.newitem, 1) then
 						if item.count >= 5 then
 							xPlayer.removeInventoryItem(data.item, 5)
 							xPlayer.addInventoryItem(data.newitem, 1)
