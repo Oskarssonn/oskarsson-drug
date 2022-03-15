@@ -48,7 +48,7 @@ end
 
 RegisterServerEvent('o-drug:collecting', function(coords, data)
     local xPlayer = ESX.GetPlayerFromId(source)
-	local hex = xPlayer.getIdentifer
+    local hex = ESX.GetPlayerFromId(source).getIdentifier()
     local dist = #(coords - data.pos)
     if xPlayer then
         if dist < 5 then
