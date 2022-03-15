@@ -12,7 +12,7 @@ end
 AddEventHandler('onClientResourceStart', function(eventName)
     if GetCurrentResourceName() == eventName then
         CreateThread(function()
-            Wait(3000)
+            Wait(120000)
             Init()
         end)
     end
